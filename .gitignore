@@ -38,7 +38,7 @@ Thumbs.db
 .idea/
 overlays
 bin
-
+local.properties
 
 ### NetBeans ###
 nbproject/private/
