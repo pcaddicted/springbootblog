@@ -21,11 +21,18 @@
 			</div>
 			<div class="form-group col-md-5">
 				<label for="username" class="col-form-label">姓名</label>
-				<input type="text" class="form-control" id="username" name="username" maxlength="20" placeholder="请输入姓名，至少2个字符，至多20个" >
+				<input type="text" class="form-control" id="name" name="name" maxlength="20" placeholder="请输入姓名，至少2个字符，至多20个" >
 			</div>
 			<div class="form-group col-md-5">
 				<label for="password" class="col-form-label">密码</label>
 				<input type="password" class="form-control" id="password" name="password" maxlength="30" placeholder="请输入密码，字母或特殊符号和数字结合" >
+			</div>
+			<div class="form-group col-md-5">
+				<label for="authorities" class="col-form-label">角色</label>
+				<select id="authorities" name="authorityId" class="form-control form-control-chosen" data-placeholder="请选择">
+					<option value="1">管理员</option>
+					<option value="2">博主</option>
+				</select>
 			</div>
 			<div class="form-group col-md-5">
 				<button type="submit" class="btn btn-primary">提交</button>

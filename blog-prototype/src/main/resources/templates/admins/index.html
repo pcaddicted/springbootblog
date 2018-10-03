@@ -16,7 +16,12 @@
 	        <div class="card ">
 	            <h5 class="card-header"><i class="fa fa-bars" aria-hidden="true"></i> 菜单</h5>
 	
+	            <!--/*@thymesVar id="model" type="org.springframework.ui.Model"*/-->
+	            
+	            <!--/*@thymesVar id="list" type="java.util.ArrayList"*/-->
 	            <ul class="list-group blog-menu" th:each="menu : ${model.list}">
+	                <!--/*@thymesVar id="menu" type="com.waylau.spring.boot.blog.vo.Menu"*/-->
+	                <!--/*@thymesVar id="name" type="java.lang.String"*/-->
 	                <a href="javascript:void(0)" class="list-group-item " title="waylau"
 					   th:title="${menu.name}" th:text="${menu.name}" th:attr="url=${menu.url}">
 	                   	 用户管理

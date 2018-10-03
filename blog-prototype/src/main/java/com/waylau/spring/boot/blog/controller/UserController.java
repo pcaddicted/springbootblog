@@ -1,6 +1,8 @@
 package com.waylau.spring.boot.blog.controller;
 
+import com.waylau.spring.boot.blog.domain.Authority;
 import com.waylau.spring.boot.blog.domain.User;
+import com.waylau.spring.boot.blog.service.AuthorityService;
 import com.waylau.spring.boot.blog.service.UserService;
 import com.waylau.spring.boot.blog.util.ConstraintViolationExceptionHandler;
 import com.waylau.spring.boot.blog.vo.Response;
@@ -13,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import javax.validation.ConstraintViolationException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,6 +31,10 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private AuthorityService authorityService;
+
 
 	@GetMapping
 	public ModelAndView list(@RequestParam(value="async",required=false) boolean async,
@@ -63,8 +70,10 @@ public class UserController {
 	 * @return
 	 */
 	@PostMapping
-	public ResponseEntity<Response> create(User user) {
-
+	public ResponseEntity<Response> saveOrUpdateUser(User user,Long authorityId) {
+		List<Authority> authorities = new ArrayList<>();
+		authorities.add(authorityService.getAuthorityById(authorityId));
+		user.setAuthorities(authorities);
 		try {
 			userService.saveOrUpdateUser(user);
 		}  catch (ConstraintViolationException e)  {

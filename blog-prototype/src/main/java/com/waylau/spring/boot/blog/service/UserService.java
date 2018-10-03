@@ -19,6 +19,13 @@ public interface UserService {
 
 
     /**
+     * 注册用户
+     * @param user
+     * @return
+     */
+    User registerUser(User user);
+
+    /**
      * 删除用户
      * @param id
      * @return
