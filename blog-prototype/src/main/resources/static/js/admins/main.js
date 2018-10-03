@@ -7,11 +7,23 @@
 
 // DOM 加载完再执行
 $(function() {
-
 	// 搜索
-	$(".menu .list-group-item").click(function() {
-		console($(this).value);
-	});
-	
+	$(".blog-menu  .list-group-item").click(function() {
+		var url = $(this).attr("url");
+		$(".blog-menu .list-group-item").removeClass("active");
+		$(this).addClass("active");
 
+		$.ajax({
+            url: url,
+            success: function (data) {
+                $("#rightContainer").html(data);
+            },
+            error: function () {
+                alert("error");
+            }
+        });
+	});
+
+    //选中菜单第一项
+    $(".blog-menu .list-group-item:first").trigger("click");
 });
