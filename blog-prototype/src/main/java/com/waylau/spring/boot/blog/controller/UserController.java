@@ -42,7 +42,6 @@ public class UserController {
 							 @RequestParam(value="pageSize",required=false,defaultValue="10") int pageSize,
 							 @RequestParam(value="name",required=false,defaultValue="") String name,
 							 Model model) {
-		System.out.println("姓名"+name);
 		Pageable pageable = new PageRequest(pageIndex, pageSize);
 		Page<User> page = userService.listUsersByNameLike(name, pageable);
 		List<User> list = page.getContent();	// 当前所在页面数据列表
